@@ -1,14 +1,28 @@
 const express = require("express");
 const Model = require("../models/model");
+const multer = require("multer");
+const path = require("path");
 
 const router = express.Router();
 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.resolve("public/uploads"));
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
 //Post Method
-router.post("/post", async (req, res) => {
+router.post("/post", upload.single("image"), async (req, res) => {
   const data = new Model({
     News_title: req.body.News_title,
     News_body: req.body.News_body,
     News_category: req.body.News_category,
+    image: req.file.originalname,
   });
 
   try {
