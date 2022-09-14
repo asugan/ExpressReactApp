@@ -1,0 +1,81 @@
+nav{
+    padding-left: 15rem;
+    padding-right: 15rem;
+    display: flex;
+    flex-direction: row;
+}
+
+ul{
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    font-size: 16px;
+    color: #404040;
+    font-family: knowledge-medium,Arial,sans-serif;
+    font-weight: 500;
+}
+
+.RoutersLogo{
+    width: 190px;
+    height: 50px;
+    margin-top: 0.2rem;
+}
+
+.nav-right{
+    display: flex;
+    padding-left: 3.5rem;
+    align-items: center;
+    gap: 1rem;
+    .nav-myview__icon__2KlHc {
+        width: auto;
+        height: 20px;
+        fill: #666;
+    }
+    .view-p{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        font-family: knowledge-medium,Arial,sans-serif;
+        font-size: 14px;
+        .nav-myview__chevron__2oN3V{
+            width: 10px;
+            fill: #404040;
+        } 
+    }
+    .buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 0.6rem;
+        .butonin{
+            font-family: knowledge-medium,Arial,sans-serif;
+            border-color: #949494;
+            background: #fff;
+            color: #666;
+            text-decoration: none;
+            border: 1px solid;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-right: 20px;
+            padding-left: 20px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .butonreg{
+            font-family: knowledge-medium,Arial,sans-serif;
+            border-color: transparent;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-right: 20px;
+            padding-left: 20px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+    }
+}
+
