@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "../Styles/App.scss";
 
 function Post() {
   const [title, setName] = useState("");
@@ -46,7 +46,7 @@ function Post() {
   };
 
   return (
-    <div className="App">
+    <div className="Postpage">
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <input
           type="text"
