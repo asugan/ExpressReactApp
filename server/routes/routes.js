@@ -17,25 +17,41 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 //Post Method
-router.post("/post", upload.single("image"), async (req, res) => {
-  const data = new Model({
-    News_title: req.body.News_title,
-    News_body: req.body.News_body,
-    News_category: req.body.News_category,
-    image: req.file.originalname,
-  });
+router.post(
+  "/post",
+  upload.fields([
+    { name: "image", maxCount: 1 },
+    { name: "image1", maxCount: 1 },
+    { name: "image2", maxCount: 1 },
+  ]),
+  async (req, res) => {
+    const data = new Model({
+      News_title: req.body.News_title,
+      News_description: req.body.News_description,
+      News_body: req.body.News_body,
+      News_category: req.body.News_category,
+      image: req.files.image[0].originalname,
+      image1: req.files.image1[0].originalname,
+      image2: req.files.image2[0].originalname,
+    });
 
-  try {
-    const dataToSave = await data.save();
-    res.status(200).json(dataToSave);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
+    try {
+      const dataToSave = await data.save();
+      res.status(200).json(dataToSave);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
   }
-});
+);
 
 //Get all Method
-router.get("/getAll", (req, res) => {
-  res.send("Get All API");
+router.get("/getAll", async (req, res) => {
+  try {
+    const data = await Model.find();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 //Get by ID Method
