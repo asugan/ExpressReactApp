@@ -2,12 +2,17 @@ const express = require("express");
 const Model = require("../models/model");
 const multer = require("multer");
 const path = require("path");
+const SharpMulter = require("sharp-multer");
 
 const router = express.Router();
 
-const storage = multer.diskStorage({
+const storage = SharpMulter({
   destination: (req, file, cb) => {
     cb(null, path.resolve("public/uploads"));
+  },
+  imageOptions: {
+    fileFormat: "webp",
+    quality: 80,
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
@@ -30,9 +35,9 @@ router.post(
       News_description: req.body.News_description,
       News_body: req.body.News_body,
       News_category: req.body.News_category,
-      image: req.files.image[0].originalname,
-      image1: req.files.image1[0].originalname,
-      image2: req.files.image2[0].originalname,
+      image: req.files.image[0].filename,
+      image1: req.files.image1[0].filename,
+      image2: req.files.image2[0].filename,
     });
 
     try {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Navbar from "../Components/Base/Navbar";
 
 function Postpage() {
   const [posts, setPosts] = useState([]);
@@ -17,12 +18,15 @@ function Postpage() {
       });
   }, []);
   return (
-    <div className="post-card" key={posts.id}>
-      <h5>{posts.News_category}</h5>
-      <h1 className="news_title">{posts.News_title}</h1>
-      <img src={image1} alt="" />
-      <p className="post-body">{posts.News_description}</p>
-    </div>
+    <React.StrictMode>
+      <Navbar />
+      <div className="post-card" key={posts.id}>
+        <h5>{posts.News_category}</h5>
+        <h1 className="news_title">{posts.News_title}</h1>
+        <img src={image1} alt="" />
+        <p className="post-body">{posts.News_description}</p>
+      </div>
+    </React.StrictMode>
   );
 }
 
