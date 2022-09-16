@@ -1,11 +1,19 @@
 .firstnews{
     display: grid;
-    padding-top: 2rem;
+    padding-top: 0.5rem;
     grid-template-columns: repeat(4,1fr);
     font-family: knowledge-medium,Arial,sans-serif;
     .secondgrid{
         grid-column-start: 2;
         grid-column-end: 3;
+        .post-card{
+            border-bottom: 1px solid #d0d0d0;
+            padding-bottom: 1.5rem;
+            padding-top: 1.5rem;
+        }
+        a{
+            text-decoration: none;
+        }
         h1{
             font-size: 32px;
             line-height: 1.2;

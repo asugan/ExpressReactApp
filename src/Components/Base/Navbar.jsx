@@ -33,7 +33,7 @@ function Navbar() {
         <div className="view">
           <a href="#" className="view-p">
             <svg
-              class="nav-myview__icon__2KlHc"
+              className="nav-myview__icon__2KlHc"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -41,7 +41,7 @@ function Navbar() {
             </svg>
             <p>My View</p>
             <svg
-              class="nav-myview__chevron__2oN3V"
+              className="nav-myview__chevron__2oN3V"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 11 7"
               aria-hidden="true"
@@ -51,7 +51,7 @@ function Navbar() {
           </a>
         </div>
         <div className="arama">
-          <span class="button__container__3sgvk">
+          <span className="button__container__3sgvk">
             <svg
               aria-hidden="true"
               width="21"
@@ -61,7 +61,7 @@ function Navbar() {
               <path
                 d="m20.721 17.469-4.644-4.644a8.595 8.595 0 1 0-3.252 3.252l4.644 4.644a.953.953 0 0 0 1.347 0l1.905-1.905a.953.953 0 0 0 0-1.347ZM1.947 8.616a6.669 6.669 0 1 1 6.669 6.668 6.676 6.676 0 0 1-6.669-6.668Z"
                 fill="#404040"
-                fill-rule="evenodd"
+                fillRule="evenodd"
               ></path>
             </svg>
           </span>
