@@ -5,12 +5,22 @@ import "../../Styles/News.scss";
 
 function Firstnews() {
   const [posts, setPosts] = useState([]);
+  const [thirdposts, setthirdPosts] = useState([]);
+  function containsUndefined(arr) {
+    return arr.includes(undefined);
+  }
+
   useEffect(() => {
     fetch("/api/getall")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        setPosts(data);
+        console.log([data[0], data[1]]);
+        setPosts([data[0], data[1]]);
+        if (containsUndefined([data[2], data[3], data[4]])) {
+          return;
+        } else {
+          setthirdPosts([data[2], data[3], data[4]]);
+        }
       })
       .catch((err) => {
         console.log(err.message);
@@ -21,6 +31,20 @@ function Firstnews() {
     <div className="firstnews">
       <div className="secondgrid">
         {posts.map((post, id) => {
+          return (
+            <div className="post-card" key={id}>
+              <h5>{post.News_category}</h5>
+              <NavLink to={`${post._id}`}>
+                <h1 className="news_title">{post.News_title}</h1>
+              </NavLink>
+              <img src={`uploads/${post.image}`} alt="" />
+              <p className="post-body">{post.News_description}</p>
+            </div>
+          );
+        })}
+      </div>
+      <div className="thirdgrid">
+        {thirdposts.map((post, id) => {
           return (
             <div className="post-card" key={id}>
               <h5>{post.News_category}</h5>
