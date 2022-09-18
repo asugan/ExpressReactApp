@@ -69,6 +69,16 @@ router.get("/getOne/:id", async (req, res) => {
   }
 });
 
+//Get by ID Category
+router.get("/getCategory/:category", async (req, res) => {
+  try {
+    const data = await Model.find({ News_category: req.params.category });
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 //Update by ID Method
 router.patch("/update/:id", (req, res) => {
   res.send("Update by ID API");
